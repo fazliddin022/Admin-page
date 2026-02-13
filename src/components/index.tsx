@@ -2,5 +2,8 @@ import ChangeAuthPage from "./ChangeAuthPage";
 import AuthFormItem from "./AuthFormItem";
 import Button from "./Button";
 import PATH from "./Path";
-
-export {ChangeAuthPage, AuthFormItem, Button, PATH}
+import Modal from './Modal'
+import Input from "./Input"
+import Select from "./Select"
+import ProductsCard from "./ProductCard"
+export {ChangeAuthPage, AuthFormItem, Button, PATH, Modal, Input, Select, ProductsCard}

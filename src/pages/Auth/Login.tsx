@@ -1,30 +1,16 @@
 import { useContext, useState, type SubmitEvent } from "react";
-import { AuthFormItem, Button, ChangeAuthPage } from "../../components";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import { AuthFormItem, Button, ChangeAuthPage} from "../../components";
+import { Toaster } from "react-hot-toast";
 import { Context } from "../../context/Context";
 import { LoadingWhite } from "../../assets/images";
+import { LoginFn } from "../../services";
 
 
 const Login = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const {setToken} = useContext(Context)
 
-  function handleLoginSubmit(evt:SubmitEvent<HTMLFormElement>){
-    setLoading(true)
-    evt.preventDefault()
-    const data = {
-      email:evt.target.email.value,
-      password:evt.target.password.value
-    }
-    axios.post("https://api.escuelajs.co/api/v1/auth/login", data).then(res => {
-      toast.success("Succesfully signed")
-      setTimeout(() => {
-        setToken(res.data.access_token)
-      }, 1500)
-    }).catch(() => toast.error("User Not Found")).finally(() => setLoading(false))
-    
-  }
+  const handleLoginSubmit = (evt:SubmitEvent<HTMLFormElement>) => LoginFn(setLoading, evt, setToken)
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
       <Toaster position="top-center" reverseOrder={false}/>

@@ -1,31 +1,15 @@
 import { useState, type SubmitEvent } from "react";
-import { AuthFormItem, Button, ChangeAuthPage, PATH } from "../../components";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import { AuthFormItem, Button, ChangeAuthPage} from "../../components";
+import { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { LoadingWhite } from "../../assets/images";
+import { RegisterFn } from "../../services";
 
 const Register = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState<boolean>(false)
 
-  function handleRegisterSubmit(evt: SubmitEvent<HTMLFormElement>) {
-    setLoading(true)
-    evt.preventDefault();
-    const data = {
-      email: evt.target.email.value,
-      password: evt.target.password.value,
-      name: `${evt.target.firstname.value} ${evt.target.lastname.value}`,
-      role: "admin",
-      avatar: "https://media.istockphoto.com/id/1465504312/vector/young-smiling-man-avatar-man-with-brown-beard-mustache-and-hair-wearing-yellow-sweater-or.jpg?s=612x612&w=0&k=20&c=9AyNmOwjadmLC1PKpANKEXj56e1KxHj9h9hGknd-Rb0="
-    }
-    axios.post("https://api.escuelajs.co/api/v1/users/", data).then(res => {
-      toast.success(`Succesfully ${res.data.name} addedd`)
-      setTimeout(() => {
-        navigate(PATH.home)
-      }, 1500)
-    }).catch(() => toast.error("Error")).finally(() => setLoading(false))
-  }
+  const handleRegisterSubmit = (evt: SubmitEvent<HTMLFormElement>) => RegisterFn(evt, setLoading, navigate)
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
       <Toaster position="top-center" reverseOrder={false}/>
