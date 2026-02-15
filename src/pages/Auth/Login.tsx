@@ -12,9 +12,9 @@ const Login = () => {
 
   const handleLoginSubmit = (evt:SubmitEvent<HTMLFormElement>) => LoginFn(setLoading, evt, setToken)
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-indigo-500 to-purple-600">
       <Toaster position="top-center" reverseOrder={false}/>
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-[350px]">
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-87.5">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
           Welcome back
         </h2>
@@ -27,7 +27,6 @@ const Login = () => {
           </div>
           <Button extraClass="!h-[40px] !mt-3 !flex !items-center justify-center" type="submit">
             {loading ? <img className="scale-[1.2]" src={LoadingWhite} alt="Loading"  width={30} height={30}/> : "Sign In"}
-            
           </Button>
         </form>
         <ChangeAuthPage title="Create Account"/>

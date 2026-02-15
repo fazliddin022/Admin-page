@@ -11,9 +11,9 @@ const Register = () => {
 
   const handleRegisterSubmit = (evt: SubmitEvent<HTMLFormElement>) => RegisterFn(evt, setLoading, navigate)
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-indigo-500 to-purple-600">
       <Toaster position="top-center" reverseOrder={false}/>
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-[380px]">
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-95">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
           Create Account
         </h2>
