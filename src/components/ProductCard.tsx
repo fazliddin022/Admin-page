@@ -3,7 +3,6 @@ import type ProductsCard from "./ProductCard"
 import type { ProductsType } from "../@types"
 import {EllipsisVertical, ThumbsUp} from "lucide-react"
 import { useNavigate } from "react-router-dom"
-import PATH from "./Path"
 
 interface ProductsCard {
     item:ProductsType
@@ -15,10 +14,10 @@ const ProductCard:FC<ProductsCard> = ({item}) => {
   return (
     <>
     <li className="relative w-65 bg-white rounded-xl shadow hover:shadow-lg transition p-3">
-       <button onClick={() => navigate(PATH.productsCreate)} className="cursor-pointer absolute top-4 right-3 text-white hover:text-black">
+       <button onClick={() => navigate(`${item.id}`)} className="cursor-pointer absolute top-4 right-3 text-white hover:text-black">
         <EllipsisVertical size={22} />
       </button>
-      <button onClick={() => navigate(PATH.productsMore)} className="absolute top-11 right-3 text-white hover:text-black">
+      <button className="absolute top-11 right-3 text-white hover:text-black">
         <ThumbsUp size={22}/>
       </button>
       <div className="h-45 overflow-hidden rounded-lg bg-slate-100">

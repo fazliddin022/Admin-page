@@ -31,9 +31,24 @@ export const RegisterFn = (evt:SubmitEvent<HTMLFormElement>, setLoading:Dispatch
       avatar: "https://media.istockphoto.com/id/1465504312/vector/young-smiling-man-avatar-man-with-brown-beard-mustache-and-hair-wearing-yellow-sweater-or.jpg?s=612x612&w=0&k=20&c=9AyNmOwjadmLC1PKpANKEXj56e1KxHj9h9hGknd-Rb0="
     }
     instance.post("users/", data).then(res => {
-      toast.success(`Succesfully ${res.data.name} addedd`)
+      toast.success(`Succesfully ${res.data.name} added`)
       setTimeout(() => {
         navigate(PATH.home)
       }, 1500)
     }).catch(() => toast.error("Error")).finally(() => setLoading(false))
+}
+
+export const CrudFn = (URL:string, data:any, navigate:NavigateFunction, id:string | undefined) => {
+  if(id){
+    instance.put(`${URL}/${id}`, data).then(() => {
+      toast.success("Succesful changed")
+      setTimeout(() => navigate(-1), 1000)
+    }).catch(() => toast.error("Error"))
+  }
+  else{
+    instance.post(URL, data).then(() => {
+      toast.success("Succesful added")
+      setTimeout(() => navigate(-1), 1000)
+    }).catch(() => toast.error("Error"))
+  }
 }
