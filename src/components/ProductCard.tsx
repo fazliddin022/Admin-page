@@ -3,12 +3,15 @@ import type ProductsCard from "./ProductCard"
 import type { ProductsType } from "../@types"
 import {EllipsisVertical, ThumbsUp} from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { collectLikeProduct } from "../store/LikeSlice"
 
 interface ProductsCard {
     item:ProductsType
 }
 
 const ProductCard:FC<ProductsCard> = ({item}) => { 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const errorImg = "https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-illustration-svg-download-png-2809510.png"
   return (
@@ -17,7 +20,7 @@ const ProductCard:FC<ProductsCard> = ({item}) => {
        <button onClick={() => navigate(`${item.id}`)} className="cursor-pointer absolute top-4 right-3 text-white hover:text-black">
         <EllipsisVertical size={22} />
       </button>
-      <button className="absolute top-11 right-3 text-white hover:text-black">
+      <button onClick={() =>  dispatch(collectLikeProduct(item))} className="absolute top-11 right-3 text-white hover:text-black">
         <ThumbsUp size={22}/>
       </button>
       <div className="h-45 overflow-hidden rounded-lg bg-slate-100">

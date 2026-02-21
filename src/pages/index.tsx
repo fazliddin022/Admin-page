@@ -5,6 +5,7 @@ import Products from "./Dashboard/Products/Products";
 import ProductsMore from "./Dashboard/Products/ProductMore";
 import ProductsCrud from "./Dashboard/Products/ProductCrud";
 import Category from "./Dashboard/Category";
+import LikeProducts from "./Dashboard/LikeProducts";
 import NotFound from "./NotFound"
 
-export {Login, Register, Home, Products, Category, NotFound, ProductsMore, ProductsCrud}
+export {Login, Register, Home, Products, Category, NotFound, ProductsMore, ProductsCrud, LikeProducts}

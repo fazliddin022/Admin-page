@@ -23,6 +23,7 @@ const SiteBar = () => {
                 <NavItem path={PATH.home} title="Home"/>
                 <NavItem path={PATH.products} title="Products"/>
                 <NavItem path={PATH.category} title="Category"/>
+                <NavItem path={PATH.likeList} title="Liked products"/>
             </nav>
     </div>
   )

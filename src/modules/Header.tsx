@@ -6,9 +6,13 @@ import { useContext, useState } from 'react'
 import { Context } from '../context/Context'
 import { LoadingWhite } from '../assets/images'
 import { ThumbsUp } from 'lucide-react'
+import { useSelector } from 'react-redux'
+import type { ProductsType } from '../@types'
 
 const Header = () => {
   const {setToken} = useContext(Context)
+  const likeList = useSelector((state:{likeList:ProductsType[]}) => state.likeList)
+
   const [loading, setLoading] = useState<boolean>(false)
   const location = useLocation()
   const navigate = useNavigate()
@@ -45,7 +49,7 @@ const Header = () => {
             <div className='flex gap-5 items-center'>
                 <Button extraClass='!w-[45px] relative !h-[45px] !p-0 flex items-center justify-center' type='button'>
                     <ThumbsUp size={25}/>
-                    <span className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-[12px] flex items-center justify-center'>0</span>
+                    <span className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-[12px] flex items-center justify-center'>{likeList.length}</span>
                 </Button>
             <Button onClick={() => setLogOutModal(true)} extraClass='!w-[100px]' type="button">Log out</Button>
             </div>

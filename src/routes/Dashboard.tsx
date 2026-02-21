@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { PATH } from "../components";
-import { Category, Home, NotFound, Products, ProductsCrud, ProductsMore } from "../pages";
+import { Category, Home, LikeProducts, NotFound, Products, ProductsCrud, ProductsMore } from "../pages";
 import { Header, SiteBar } from "../modules";
 
 const Dashboard = () => {
@@ -11,7 +11,8 @@ const Dashboard = () => {
     { id: 4, path: PATH.notFound, element: <NotFound /> },
     { id: 5, path: PATH.productsCreate, element: <ProductsCrud/> },
     { id: 6, path: PATH.productsMore, element: <ProductsMore/> },
-    { id: 7, path: PATH.productsUpdate, element: <ProductsCrud/> }
+    { id: 7, path: PATH.productsUpdate, element: <ProductsCrud/> },
+    { id: 8, path: PATH.likeList, element: <LikeProducts/> }
   ];
   return (
     <div className="flex">

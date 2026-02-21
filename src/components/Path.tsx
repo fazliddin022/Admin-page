@@ -7,6 +7,7 @@ const PATH = {
     productsMore:"/products/:id",
     productsUpdate:"/products/:id/update",
     category:"/category",
+    likeList:"/likes",
     notFound:"*"
 }
 

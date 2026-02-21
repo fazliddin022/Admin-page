@@ -24,7 +24,7 @@ const Products = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-7.5">
           <Input value={search} setValue={setSearch} extraClass="!w-[300px] !bg-slate-200" name="search" placeholder="Search..." type="text"/>
-          <Select setValue={setCategoryId} extraClass="!w-[300px] !bg-slate-200"/>
+          <Select value={categoryId} setValue={setCategoryId} extraClass="!w-[300px] !bg-slate-200"/>
         </div>
         <Button onClick={() => navigate(PATH.productsCreate)} extraClass="!w-[100px]" type="button">Create</Button>
       </div>
